@@ -6,18 +6,17 @@ def extrait_donnees(chemin, separator=';', is_in_quote=False):
     source = open(chemin, "r")
     premiere_ligne = source.readline().strip()
     attributs = premiere_ligne.split(separator)
+    chars = ' '
     if is_in_quote:
-        attributs = [at.strip("'\"") for at in attributs]
+        chars += '\'"'
+    attributs = [at.strip(chars) for at in attributs]
     nbr_attributs = len(attributs)
     table = []
     for ligne in source:
         element = {}
         prop = ligne.strip().split(separator)
         for i in range(nbr_attributs):
-            if is_in_quote:
-                element[attributs[i]] = prop[i].strip("'\"")
-            else:
-                element[attributs[i]] = prop[i]
+            element[attributs[i]] = prop[i].strip(chars)
         table.append(element)
     source.close()
     return table
