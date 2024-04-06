@@ -22,3 +22,11 @@ def extrait_donnees(chemin, separator=';', is_in_quote=False):
     source.close()
     return table
 
+
+def stringToFloat(data):
+    for element in data:
+        for key in element:
+            try:
+                element[key] = float(element[key])
+            except ValueError:
+                pass
