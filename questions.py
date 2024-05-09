@@ -36,7 +36,6 @@ def PoserQuestion(questionDict):
         ProduitIllicite = list(csv_dict.keys())[randint(0, len(csv_dict)-1)]
         while not CheckQuestion(ProduitIllicite, ignored):
             ProduitIllicite = list(csv_dict.keys())[randint(0, len(csv_dict)-1)]
-        print("accessed")
         return True
 def main():
     # print("Questions\nChoisissez la catégorie:e\n1) Alcool\n2) Tabac\n3) Cocaïne\n4) Cannabis")
