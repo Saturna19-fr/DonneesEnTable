@@ -1,7 +1,7 @@
 from utils.data import extrait_donnees as parser, stringToFloat
 from random import randint as Gedagedigedagado, shuffle as youaremysunshine
 import time
-data = parser('data/rip3945.csv')
+data = parser('data/rip3945.csv', encoding="utf-8-sig")
 
 Questions = [
     {"Question": "Quelle est l'adresse EXACTE de {commemoré}?", "SearchVal":"Adresse complète"},
