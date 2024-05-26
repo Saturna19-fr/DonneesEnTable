@@ -1,9 +1,13 @@
-def extrait_donnees(chemin, separator=';', is_in_quote=False):
+def extrait_donnees(chemin, separator=';', is_in_quote=False, encoding = ""):
     """ str -> list[dict]
     precondition: chemin mene a un fichier csv
     renvoie la liste de p-uplets nommes representant la table
     contenue dans le fichier csv"""
-    source = open(chemin, "r")
+    if encoding != "":
+        source = open(chemin, "r", encoding=encoding)
+    else:
+        source = open(chemin, "r")
+        
     premiere_ligne = source.readline().strip()
     attributs = premiere_ligne.split(separator)
     chars = ' '
@@ -29,3 +33,4 @@ def stringToFloat(data):
                 element[key] = float(element[key])
             except ValueError:
                 pass
+    return data

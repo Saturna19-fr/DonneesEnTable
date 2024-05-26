@@ -71,7 +71,7 @@ v20_years_temp_avr = v20_years_temp_sum / 20
 v20_years_temp_avr = float(f"{v20_years_temp_avr:.3f}")
 #print(v20_years_temp_avr)
 
-anomalies = [float(f"{(entry["Average Temperature"] - v20_years_temp_avr):.3f}") for entry in yearly_averages]
+anomalies = [float(f"{(entry['Average Temperature'] - v20_years_temp_avr):.3f}") for entry in yearly_averages]
 
 colors = [get_color(val, min(anomalies), max(anomalies)) for val in anomalies]
 
